@@ -286,6 +286,16 @@ The file [.github/workflows/build_n_publish.yml](https://github.com/computorg/te
 
 Once this is successful, you are ready to submit your manuscript to the [Computo submission platform](https://computo.scholasticahq.com/).
 
+::: {.callout-warning}
+The first time, you possibly need to create the branch for the action to work. This can be done by running the following command from your computer, in your git repository:
+
+```.bash
+quarto publish gh-pages
+```
+
+Then, set the branch `gh-page` as the source of your github page, and trigger the action to check that everything works fine.
+::: 
+
 ### What about CI and `conda`?
 
 [The build and deploy process of our Computo quarto extension](https://github.com/computorg/computo-quarto-extension/blob/main/.github/workflows/build.yml) shows how `miniconda` can be set used in place of `venv`. The main striking difference is the use of a `environment.yml` file in place of `requirements.txt`.
