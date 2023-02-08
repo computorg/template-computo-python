@@ -1,7 +1,7 @@
 
 # Template for contribution to Computo for Python users
 
-[![build and deploy](https://github.com/computorg/template-computo-python/actions/workflows/build_n_publish.yml/badge.svg)](https://github.com/computorg/template-computo-python/actions/workflows/build_n_publish.yml)
+[![build and deploy](https://github.com/computorg/template-computo-python/actions/workflows/build.yml/badge.svg)](https://github.com/computorg/template-computo-python/actions/workflows/build.yml)
 
 Documentation and sample of a simple `Python`-based submission for the [Computo journal](https://computorg.github.io), using our Quarto-based template and `venv` for handling dependencies.
 
