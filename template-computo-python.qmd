@@ -69,7 +69,7 @@ This section covers basic formatting guidelines for [Quarto](https://quarto.org/
 To render a document, run `quarto render`. By default, both PDF and HTML documents are generated:
 
 ```.bash
-quarto render template-computo-R.qmd # will render both to html and PDF
+quarto render template-computo-python.qmd # will render both to html and PDF
 ```
 
 ::: {.callout-tip}
