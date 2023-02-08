@@ -1,5 +1,5 @@
 
-# Template for contribution to Computo for Python users
+# Computo Template for Python users
 
 [![build and deploy](https://github.com/computorg/template-computo-python/actions/workflows/build.yml/badge.svg)](https://github.com/computorg/template-computo-python/actions/workflows/build.yml)
 
