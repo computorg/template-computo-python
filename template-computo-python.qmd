@@ -231,7 +231,7 @@ Advanced formatting features are possible and documented (including interactive 
 
 ## Handle `Python` dependencies with `venv`
 
-To make your work reproducible, you need to fix the packages and environment used to run your analysis. For the `R` system, the `renv` package is one of the possible reliable method, supported by the community. You basically need a couple of commands to setup your environment on your local machine. First, to create a new virtual environment in the directory `my_env`
+To make your work reproducible, you need to fix the packages and environment used to run your analysis. For `Python`, `venv` is one of the possible reliable method, supported by the community. You basically need a couple of commands to setup your environment on your local machine. First, to create a new virtual environment in the directory `my_env`
 
 ``` .bash
 python3 -m venv my_env
