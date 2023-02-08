@@ -19,7 +19,7 @@ A Computo submission is thus a git(hub) repository like this one containing
 - configuration files to set up the dependencies in a virtual environment
 - configuration files to set up the continuous integration rendering the final documents
 
-In this template, we focus on `R` users and detail a solution based on
+In this template, we focus on `Python` users and detail a solution based on
 
 - The `Jupyter` kernel of Quarto for rendering the document,
 - The `venv` Python built system for setting the virtual environment,
@@ -54,7 +54,7 @@ Use the [`venv` package manager](https://cewing.github.io/training.python_web/ht
 
 ### Step 4: proof reproducibility
 
-Put everything together and check that your work is indeed reproducible. To this end, you need to rely on a github action, whose default is pre-configured and found here: [.github/workflows/build_n_publish.yml](https://github.com/computorg/template-computo-R/blob/main/.github/workflows/build_n_publish.yml)
+Put everything together and check that your work is indeed reproducible. To this end, you need to rely on a github action, whose default is pre-configured and found here: [.github/workflows/build.yml](https://github.com/computorg/template-computo-R/blob/main/.github/workflows/build_n_publish.yml)
 
 This action will
 
