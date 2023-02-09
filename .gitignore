@@ -8,3 +8,8 @@ _extensions/
 /.quarto/
 /.joblib
 /_extensions/
+
+# Latex compilation files:
+*.aux
+*.log
+*.toc
