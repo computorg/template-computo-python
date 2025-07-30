@@ -2,11 +2,12 @@
 
 ## About this document
 
-This document, accompanied by the [customized GitHub repository](https://github.com/computorg/template-computo-python/), provides a template for writing contributions to **Computo** [@computo]. We show how `Python` code can be included and how the repository can be set up for triggering GitHub actions for rendering the document, with dependencies handled by `venv` and `pip`.
+This document, accompanied by the [customized GitHub repository](https://github.com/computorg/template-computo-python/), provides a template for writing contributions to **Computo** [@computo].
 
-## Setup a GitHub repository for preparing your submission
-
-You can start by clicking on the **"use this template"** button, on the top of the page of the [github repository associated with this document](https://github.com/computorg/template-computo-python/). Of course, you can set your repository private during the preparation of your manuscript.
+::: {.callout-tip}
+## Note
+This document provides only the key formatting principles. For a detailed, step-by-step guide on preparing your article and submitting it to Computo, please consult the [guidelines for authors](https://computo-journal.org/site/guidelines-authors.html).
+:::
 
 ## Quarto
 
@@ -14,19 +15,13 @@ You can start by clicking on the **"use this template"** button, on the top of t
 
 ## Requirements
 
-You need [quarto](https://quarto.org/docs/get-started/) installed on your system and the [Computo extension](https://github.com/computorg/computo-quarto-extension) to prepare your document. For the latter, once quarto is installed, run the following to install the extension in the current directory (it creates an `_extension` directory which is ignored by git thanks to `.gitignore` by default):
+You need [quarto](https://quarto.org/) installed on your system and the [Computo extension](https://github.com/computorg/computo-quarto-extension) to prepare your document. For the latter, once quarto is installed,  run the following to install the extension in the current directory (it creates a `_extension` directory which is ignored by git thanks to `.gitignore` by default):
 
 ```.bash
 quarto add computorg/computo-quarto-extension
 ```
 
 [`Python`](https://www.python.org/) and [`Jupyter`](https://jupyter.org/install) must be installed on your computer.
-
-## Link with your usual tools
-
-Quarto is expecting a `.qmd` markdown file, but will also works with a standard [Jupyter notebook](https://quarto.org/docs/get-started/hello/jupyter.html) file if you are used to it (it will just require to add the proper YAML metadata^[the same metadata as in the [`template-computo-python.qmd` file](https://github.com/computorg/template-computo-python/blob/main/template-computo-python.qmd) in the first cell, type "Raw", of the notebook]).
-
-**Note**: _More advanced Jupyter-related functionality like Myst/Jupyter book are not supported in this Quarto setup. The markdown syntax inside the Jupyter notebook should follow the Quarto syntax (c.f. [below](#formatting)). If you are more comfortable with using Myst/Jupyter book, we provide a [specific template](https://github.com/computorg/template-computo-myst) but it will requires more formatting work for Computo editorial team, thus highly encourage authors to use the Quarto templates._
 
 # Formatting
 
@@ -35,7 +30,7 @@ This section covers basic formatting guidelines for quarto documents.
 To render a document, run `quarto render`. By default, both PDF and HTML documents are generated:
 
 ```.bash
-quarto render template-computo-python.qmd # renders both HTML and PDF
+quarto render # renders both HTML and PDF
 ```
 
 ::: {.callout-tip}
@@ -195,83 +190,6 @@ Advanced formatting features are possible and documented (including interactive 
 - [The previously published papers in Computo](https://computo.sfds.asso.fr/publications/) can be used as references.
 
 :::
-
-# Finalize your submission
-
-## Handle `Python` dependencies with `venv`
-
-To make your work reproducible, you need to fix the packages and environment used to run your analysis. For `Python`, `venv` is one of the possible reliable method, supported by the community. You basically need a couple of commands to setup your environment on your local machine. First, to create a new virtual environment in the directory `my_env`
-
-``` .bash
-python3 -m venv my_env
-```
-
-and activate it
-
-``` .bash
-source my_env/bin/activate
-```
-
-Then installed the packages required to perform your analysis. Here,
-
-``` .bash
-python3 -m pip install jupyter matplotlib numpy
-```
-
-Once you are all set up, you need to save your working environment into a file so that anyone can reproduce your analysis on their side:
-
-``` .bash
-python3 -m pip freeze > requirements.txt
-```
-
-The corresponding `requirements.txt` file [found in this repository](https://github.com/computorg/template-computo-python/blob/main/requirements.txt) is then
-
-```{.bash filename="requirements.txt"}
-jupyter
-matplotlib
-numpy
-```
-
-::: {.callout-important}
-`requirements.txt` is the only file that needs to be versioned by git.
-:::
-
-More details for using `venv` and `pip` can be found on the [quarto page dedicated to environments](https://quarto.org/docs/projects/virtual-environments.html#using-venv).
-
-### What about `conda`?
-
-For `conda` users, it is also possible to follow the same path with your favorite version of `conda`. There is a [quarto page dedicated to the conda environments](https://quarto.org/docs/projects/virtual-environments.html#using-conda).
-
-## Continuous integration
-
-The repository associated with this template is pre-configured to trigger an action on push that performs the following:
-
-1. Check out the repository on an `ubuntu-latest` machine
-2. Install quarto and dependencies, including the Computo extension
-3. Install Python (3.10) and dependencies with `venv`, using your `requirements.txt` file
-4. Render your .qmd file and Publish the results on a gh-page (both HTML and PDF)
-
-The file [.github/workflows/build_n_publish.yml](https://github.com/computorg/template-computo-python/blob/main/.github/workflows/build_n_publish.yml) is largely inspired from [this file](https://quarto.org/docs/publishing/github-pages.html#example-jupyter-with-venv).
-
-Once this is successful, you are ready to submit your manuscript to the [Computo submission platform](https://computo.scholasticahq.com/).
-
-::: {.callout-warning}
-The first time, you possibly need to create the branch for the action to work. This can be done by running the following command from your computer, in your git repository:
-
-```.bash
-quarto publish gh-pages
-```
-
-Then, set the branch `gh-page` as the source of your github page, and trigger the action to check that everything works fine.
-:::
-
-### What about CI and `conda`?
-
-[The build and deploy process of our Computo quarto extension](https://github.com/computorg/computo-quarto-extension/blob/main/.github/workflows/build.yml) shows how `miniconda` can be set used in place of `venv`. The main striking difference is the use of a `environment.yml` file in place of `requirements.txt`.
-
-## Data and large files
-
-If your submission materials contain files larger than 50MB, **especially data files**, they won’t fit on a git repository as is. For this reason, we encourage you to put your data or any materials you deem necessary on an external “open data” centered repository hub such a [Zenodo](https://zenodo.org/) or [OSF](https://osf.io/).
 
 # References {.unnumbered}
 
