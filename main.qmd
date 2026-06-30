@@ -15,7 +15,7 @@ This document provides only the key formatting principles. For a detailed, step-
 
 ## Requirements
 
-You need [quarto](https://quarto.org/) installed on your system and the [Computo extension](https://github.com/computorg/computo-quarto-extension) to prepare your document. For the latter, once quarto is installed,  run the following to install the extension in the current directory (it creates a `_extension` directory which is ignored by git thanks to `.gitignore` by default):
+You need [quarto](https://quarto.org/) installed on your system and the [Computo extension](https://github.com/computorg/computo-quarto-extension) to prepare your document. For the latter, once quarto is installed, run the following to install the extension in the current directory (it creates a `_extension` directory which is ignored by git thanks to `.gitignore` by default):
 
 ```.bash
 quarto add computorg/computo-quarto-extension
@@ -66,7 +66,7 @@ f(x_1, \dots, x_n; \mu, \sigma^2) =
 \frac{1}{\sigma \sqrt{2\pi}} \exp{\left(- \frac{1}{2\sigma^2}\sum_{i=1}^n(x_i - \mu)^2\right)}
 $$
 
-It is also posible to cross-reference an equation, see @eq-mylabel:
+It is also possible to cross-reference an equation, see @eq-mylabel:
 
 $$
 \begin{aligned}
@@ -96,12 +96,12 @@ See @thm-slln.
 
 ## Python Code
 
-Quarto uses either Jupyter or knitr to render code chunks. This can be triggered in the yaml header. In this tutorial, we use `Jupyter`  (`Python` and `Jupyter` must be installed on your computer).
+Quarto uses either Jupyter or knitr to render code chunks. This can be triggered in the yaml header. In this tutorial, we use `Jupyter` (`Python` and `Jupyter` must be installed on your computer).
 
 ``` yaml
 ---
 title: "My Document"
-author "Jane Doe"
+author: "Jane Doe"
 jupyter: python3
 ---
 ```
@@ -173,7 +173,7 @@ page](https://quarto.org/docs/authoring/cross-references.html).
 
 ## Advanced formatting
 
-Advanced formatting features are possible and documented (including interactive plots, pseudo-code, (Tikz) diagrams, Lua filters, mixing R + Python in the same document), but are beyond the scope of this simple introduction. We point several entries in this direction.
+Advanced formatting features are possible and documented (including interactive plots, pseudo-code, (Tikz) diagrams, Lua filters, mixing R + Python in the same document), but are beyond the scope of this simple introduction. We point to several entries in this direction.
 
 ::: {.callout-warning}
 ## More information
