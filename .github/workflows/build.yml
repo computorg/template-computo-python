@@ -14,11 +14,11 @@ on:
 
 jobs:
   call_env_workflow:
-    uses: computorg/workflows/.github/workflows/global-env.yml@main
+    uses: computorg/workflows/.github/workflows/global-env.yml@pin-ubuntu-24.04
   call_quartopublish_workflow:
     permissions:
       id-token: write
       contents: write
       pages: write
-    uses: computorg/workflows/.github/workflows/publish-render.yml@main
+    uses: computorg/workflows/.github/workflows/publish-render.yml@pin-ubuntu-24.04
     needs: call_env_workflow
